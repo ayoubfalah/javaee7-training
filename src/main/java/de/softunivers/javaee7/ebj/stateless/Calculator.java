@@ -11,17 +11,17 @@ public class Calculator
 {
     public int add(int x, int y)
     {
-        return x + y;
+        return Math.addExact(x, y);
     }
     
     public int substract(int x, int y)
     {
-        return x - y;
+        return Math.subtractExact(x, y);
     }
     
     public int multiply(int x, int y)
     {
-        return x * y;
+        return Math.multiplyExact(x, y);
     }
     
     /**
