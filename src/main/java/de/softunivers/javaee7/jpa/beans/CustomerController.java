@@ -23,6 +23,19 @@ public class CustomerController implements Serializable
     @Inject
     CustomerBean customerBean;
     
+    // Insert a new customer to the DB
+    public String add()
+    {
+        Customer customer = new Customer();
+        customer.setCustno(customerBean.getCustNo());
+        customer.setCustname(customerBean.getCustName());
+        customer.setCity(customerBean.getCity());
+        
+        customerFacade.create(customer);
+        
+        return "index";
+    }
+    
     // Select all customers in the DB
     public List<Customer> getAll()
     {
