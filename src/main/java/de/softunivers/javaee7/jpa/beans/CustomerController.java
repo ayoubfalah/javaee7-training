@@ -20,11 +20,21 @@ public class CustomerController implements Serializable
     @EJB
     CustomerFacade customerFacade;
     
+    @Inject
+    CustomerBean customerBean;
+    
     // Select all customers in the DB
     public List<Customer> getAll()
     {
         return customerFacade.findAll();
-    }   
+    }
+    
+    // Delete a customer from the DB
+    public String delete(Customer c)
+    {
+        customerFacade.remove(c);
+        return null;
+    }
     
     // Compute the number of customer in the DB
     public int count()
