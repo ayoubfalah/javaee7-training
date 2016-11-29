@@ -29,6 +29,18 @@ public class CustomerController implements Serializable
         return customerFacade.findAll();
     }
     
+    // Update a customer
+    public String edit(Customer customer)
+    {
+        // TODO use the method edit directly
+        //customerFacade.edit(c);
+        customerBean.setCustNo(customer.getCustno());
+        customerBean.setCustName(customer.getCustname());
+        customerBean.setCity(customer.getCity());
+        
+        return "update";
+    }
+    
     // Delete a customer from the DB
     public String delete(Customer c)
     {
@@ -40,5 +52,18 @@ public class CustomerController implements Serializable
     public int count()
     {
         return customerFacade.count();
-    }    
+    }
+    
+    // Save a modification
+    public String save()
+    {
+        System.out.println("######");
+        Customer customer = new Customer(customerBean.getCustNo());
+        customer.setCustname(customerBean.getCustName());
+        customer.setCity(customerBean.getCity());
+        
+        customerFacade.edit(customer);
+        
+        return "index";        
+    }
 }

@@ -14,9 +14,9 @@ import lombok.Setter;
 @SessionScoped
 @Getter
 @Setter
-class CustomerBean implements Serializable
+public class CustomerBean implements Serializable
 {
-    private int custNo;
+    private Integer custNo;
     private String custName;
     private String city;    
 }
