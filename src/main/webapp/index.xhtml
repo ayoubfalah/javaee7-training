@@ -11,6 +11,11 @@
         <h:form>
             <h:dataTable value="#{customerController.getAll()}" var="cust">
                 <h:column>
+                    <f:facet name="header">Edit</f:facet>
+                    <h:commandLink value="Edit"
+                                   action="#{customerController.edit(cust)}" />
+                </h:column>
+                <h:column>
                     <f:facet name="header">Customer No.</f:facet>
                     #{cust.custno}
                 </h:column>
