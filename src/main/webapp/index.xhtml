@@ -21,6 +21,11 @@
                 <h:column>
                     <f:facet name="header">City</f:facet>
                     #{cust.city}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">DELETE</f:facet>
+                    <h:commandLink value="Delete"
+                                   action="#{customerController.delete(cust)}"></h:commandLink>
                 </h:column>                
             </h:dataTable>
         </h:form>
