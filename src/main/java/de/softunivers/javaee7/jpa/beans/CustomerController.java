@@ -70,7 +70,6 @@ public class CustomerController implements Serializable
     // Save a modification
     public String save()
     {
-        System.out.println("######");
         Customer customer = new Customer(customerBean.getCustNo());
         customer.setCustname(customerBean.getCustName());
         customer.setCity(customerBean.getCity());
