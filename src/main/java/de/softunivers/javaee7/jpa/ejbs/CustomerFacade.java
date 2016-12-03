@@ -22,6 +22,5 @@ public class CustomerFacade extends AbstractFacade<Customer> {
 
     public CustomerFacade() {
         super(Customer.class);
-    }
-    
+    }    
 }
