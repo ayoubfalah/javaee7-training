@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
 /**
@@ -23,7 +22,10 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "CUSTOMER")
-@XmlRootElement
+// Define some of the most common queries
+// Defining a query this way results in a static named query
+// Each static named query will be precompild by the persistence provider
+// This approach follows the "Don´t Repeat Yourself"(DRY) design pattern
 @NamedQueries({
     @NamedQuery(name = "Customer.findAll", query = "SELECT c FROM Customer c"),
     @NamedQuery(name = "Customer.findByCustno", query = "SELECT c FROM Customer c WHERE c.custno = :custno"),
