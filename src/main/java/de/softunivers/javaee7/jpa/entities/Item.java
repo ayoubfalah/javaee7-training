@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -18,7 +17,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "ITEM")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
     @NamedQuery(name = "Item.findByItemno", query = "SELECT i FROM Item i WHERE i.itemno = :itemno"),
@@ -80,7 +78,7 @@ public class Item implements Serializable {
 
     @Override
     public String toString() {
-        return "[ itemno=" + itemno +", unitprice=" + unitprice + "$ ]";
+        return "[ itemno=" + itemno +", unitprice=" + unitprice + " ]";
     }
     
 }
