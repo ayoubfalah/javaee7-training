@@ -15,7 +15,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -23,7 +22,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "PURCHASE_ORDER")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "PurchaseOrder.findAll", query = "SELECT p FROM PurchaseOrder p"),
     @NamedQuery(name = "PurchaseOrder.findByOrderno", query = "SELECT p FROM PurchaseOrder p WHERE p.orderno = :orderno"),
@@ -40,7 +38,6 @@ public class PurchaseOrder implements Serializable {
     @Column(name = "Ord_date")
     @Temporal(TemporalType.DATE)
     private Date orddate;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "Ord_amt")
     private Float ordamt;
     @JoinColumn(name = "Cust_no", referencedColumnName = "Cust_no")
