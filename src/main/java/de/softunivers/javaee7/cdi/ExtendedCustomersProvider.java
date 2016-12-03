@@ -4,13 +4,13 @@ package de.softunivers.javaee7.cdi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import javax.enterprise.context.Dependent;
+import javax.enterprise.inject.Vetoed;
 
 /**
  *
  * @author ayoubfalah
  */
-@Dependent
+@Vetoed
 public class ExtendedCustomersProvider extends CustomersProvider
 {
 
