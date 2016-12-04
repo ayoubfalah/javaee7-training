@@ -1,6 +1,7 @@
 
 package de.softunivers.javaee7.cdi;
 
+import de.softunivers.javaee7.cdi.qualifiers.CurrentImpl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +12,7 @@ import javax.enterprise.context.Dependent;
  * @author ayoubfalah
  */
 @Dependent
+@CurrentImpl
 public class CustomersProvider 
 {
     public List<String> getCustomersNames()
