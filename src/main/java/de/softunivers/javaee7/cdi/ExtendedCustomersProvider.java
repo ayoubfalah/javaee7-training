@@ -4,12 +4,13 @@ package de.softunivers.javaee7.cdi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.enterprise.inject.Alternative;
 
 /**
  *
  * @author ayoubfalah
  */
-
+@Alternative
 public class ExtendedCustomersProvider extends CustomersProvider
 {
 

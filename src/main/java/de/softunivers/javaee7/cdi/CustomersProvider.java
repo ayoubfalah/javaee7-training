@@ -1,18 +1,18 @@
 
 package de.softunivers.javaee7.cdi;
 
-import de.softunivers.javaee7.cdi.qualifiers.CurrentImpl;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import javax.enterprise.context.Dependent;
+import javax.enterprise.inject.Alternative;
 
 /**
  *
  * @author ayoubfalah
  */
 @Dependent
-@CurrentImpl
+@Alternative
 public class CustomersProvider 
 {
     public List<String> getCustomersNames()
