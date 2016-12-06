@@ -27,6 +27,9 @@ public class ItemClientBean
     @Inject
     HttpServletRequest httpServletRequest;
     
+    @Inject
+    ItemBackingBean itemBackingBean;
+    
     @PostConstruct
     public void init()
     {
@@ -45,6 +48,16 @@ public class ItemClientBean
         Builder request = target.request();
         Item[] response = request.get(Item[].class);
         return response;
+    }
+    
+    public Item getItem()
+    {
+        Item item = target
+                .path("{item}")
+                .resolveTemplate("item", itemBackingBean.getItemId())
+                .request()
+                .get(Item.class);
+        return item;
     }
     
     @PreDestroy
