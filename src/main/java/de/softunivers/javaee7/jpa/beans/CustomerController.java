@@ -1,7 +1,7 @@
 package de.softunivers.javaee7.jpa.beans;
 
 import de.softunivers.javaee7.jpa.ejbs.CustomerFacade;
-import de.softunivers.javaee7.jpa.entities.Customer;
+import de.softunivers.javaee7.entities.Customer;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;

@@ -1,4 +1,4 @@
-package de.softunivers.javaee7.jpa.entities;
+package de.softunivers.javaee7.entities;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,6 +15,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -27,6 +28,7 @@ import javax.persistence.TemporalType;
     @NamedQuery(name = "PurchaseOrder.findByOrderno", query = "SELECT p FROM PurchaseOrder p WHERE p.orderno = :orderno"),
     @NamedQuery(name = "PurchaseOrder.findByOrddate", query = "SELECT p FROM PurchaseOrder p WHERE p.orddate = :orddate"),
     @NamedQuery(name = "PurchaseOrder.findByOrdamt", query = "SELECT p FROM PurchaseOrder p WHERE p.ordamt = :ordamt")})
+@XmlRootElement
 public class PurchaseOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;

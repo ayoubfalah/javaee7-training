@@ -1,4 +1,4 @@
-package de.softunivers.javaee7.jpa.entities;
+package de.softunivers.javaee7.entities;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -12,6 +12,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -23,6 +24,7 @@ import javax.validation.constraints.Size;
     @NamedQuery(name = "Item.findAll", query = "SELECT i FROM Item i"),
     @NamedQuery(name = "Item.findByItemno", query = "SELECT i FROM Item i WHERE i.itemno = :itemno"),
     @NamedQuery(name = "Item.findByUnitprice", query = "SELECT i FROM Item i WHERE i.unitprice = :unitprice")})
+@XmlRootElement
 public class Item implements Serializable {
 
     @Basic(optional = false)

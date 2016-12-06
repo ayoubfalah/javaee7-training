@@ -1,6 +1,6 @@
 package de.softunivers.javaee7.jpa.ejbs;
 
-import de.softunivers.javaee7.jpa.entities.Customer;
+import de.softunivers.javaee7.entities.Customer;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
