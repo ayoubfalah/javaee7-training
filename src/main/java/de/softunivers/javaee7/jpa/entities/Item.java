@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -22,6 +24,12 @@ import javax.persistence.Table;
     @NamedQuery(name = "Item.findByItemno", query = "SELECT i FROM Item i WHERE i.itemno = :itemno"),
     @NamedQuery(name = "Item.findByUnitprice", query = "SELECT i FROM Item i WHERE i.unitprice = :unitprice")})
 public class Item implements Serializable {
+
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 150)
+    @Column(name = "Item_name")
+    private String itemname;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -79,6 +87,14 @@ public class Item implements Serializable {
     @Override
     public String toString() {
         return "[ itemno=" + itemno +", unitprice=" + unitprice + " ]";
+    }
+
+    public String getItemname() {
+        return itemname;
+    }
+
+    public void setItemname(String itemname) {
+        this.itemname = itemname;
     }
     
 }
