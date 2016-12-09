@@ -2,6 +2,7 @@
 package de.softunivers.javaee7.jaxrs.client;
 
 import de.softunivers.javaee7.entities.Item;
+import de.softunivers.javaee7.jaxrs.json.ItemWriter;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.enterprise.context.RequestScoped;
@@ -10,8 +11,11 @@ import javax.inject.Named;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.Invocation.Builder;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 /**
  *
@@ -54,10 +58,28 @@ public class ItemClientBean
     {
         Item item = target
                 .path("{item}")
-                .resolveTemplate("item", itemBackingBean.getItemId())
+                .resolveTemplate("item", itemBackingBean.getItemno())
                 .request()
                 .get(Item.class);
         return item;
+    }
+    
+    public void addItem() 
+    {
+        Item item = new Item();
+        item.setItemname(itemBackingBean.getItemname());
+        item.setUnitprice(itemBackingBean.getUnitprice());
+        target.register(ItemWriter.class)
+                .request()
+                .post(Entity.entity(item, MediaType.APPLICATION_JSON));
+    }
+    
+    public void deleteItem()
+    {
+        target.path("{itemNo}")
+              .resolveTemplate("itemNo", itemBackingBean.getItemno())
+              .request().delete();
+        
     }
     
     @PreDestroy
@@ -65,5 +87,4 @@ public class ItemClientBean
     {
         client.close();
     }
-
 }
