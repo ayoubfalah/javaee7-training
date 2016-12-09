@@ -27,6 +27,8 @@ public class ApplicationConfig extends Application
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
+        resources.add(de.softunivers.javaee7.jaxrs.json.ItemReader.class);
+        resources.add(de.softunivers.javaee7.jaxrs.json.ItemWriter.class);
         resources.add(de.softunivers.javaee7.jaxrs.rest.CustomerFacadeREST.class);
         resources.add(de.softunivers.javaee7.jaxrs.rest.ItemFacadeREST.class);
         resources.add(de.softunivers.javaee7.jaxrs.rest.PurchaseOrderFacadeREST.class);
