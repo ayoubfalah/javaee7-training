@@ -1,6 +1,7 @@
 
 package de.softunivers.javaee7.jaxrs.client;
 
+import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import lombok.Getter;
@@ -14,8 +15,9 @@ import lombok.Setter;
 @Setter
 @Named
 @RequestScoped
-public class ItemBackingBean 
+public class ItemBackingBean implements Serializable
 {
-    int itemId;
-
+    int itemno;
+    String itemname;
+    Float unitprice;
 }
