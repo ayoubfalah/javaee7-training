@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Item Details</title>
+    </h:head>
+    <body>
+        <h1>Item Details</h1>
+        <h:form>
+            <table cellpadding="5" cellspacing="5">
+                <tr>
+                    <th align="left">Item Name:</th>
+                    <td><h:inputText value="#{itemBackingBean.itemname}" /></td>
+                </tr>
+                <tr>
+                    <th align="left">Item Unit price:</th>
+                    <td><h:inputText value="#{itemBackingBean.unitprice}" /></td>
+                </tr>
+            </table>
+            
+            <h:commandButton value="Add" action="items" 
+                             actionListener="#{itemClientBean.addItem()}"/>            
+        </h:form>
+    </body>
+</html>
