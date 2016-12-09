@@ -9,15 +9,19 @@
     </h:head>
     <h:body>
         <h:form prependId="false">
-            <h:selectOneRadio value="#{itemBackingBean.itemId}"
+            <h:selectOneRadio value="#{itemBackingBean.itemno}"
                               layout="pageDirection">
-                <c:forEach items="#{itemClientBean.items}" var="item">
-                    <f:selectItem itemValue="#{item.itemno}" 
-                                  itemLabel="#{item.itemname}" />
+                <c:forEach items="#{itemClientBean.items}" var="itm">
+                    <f:selectItem itemValue="#{itm.itemno}" 
+                                  itemLabel="#{itm.itemname}" />
                 </c:forEach>
             </h:selectOneRadio>
             
             <h:commandButton value="Details" action="item" />
+            <h:commandButton value="Delete" 
+                             action="items" 
+                             actionListener="#{itemClientBean.deleteItem()}" />
+            <h:commandButton value="New Item" action="addItem" />
         </h:form>
     </h:body>
 </html>
