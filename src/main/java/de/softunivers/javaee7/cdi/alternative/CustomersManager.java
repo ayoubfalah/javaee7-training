@@ -1,4 +1,4 @@
-package de.softunivers.javaee7.cdi;
+package de.softunivers.javaee7.cdi.alternative;
 
 import java.util.List;
 import javax.inject.Inject;
